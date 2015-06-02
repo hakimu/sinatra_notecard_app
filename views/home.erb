@@ -1,0 +1,12 @@
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+<body>
+	<p>There are <%= @notecards.count %>  entries in the notecard</p>
+	<p>Some of the subjects include <%= @notecards.shuffle.first.term %></p>
+	<p>Some of the subjects include <%= @notecards.shuffle.first.term %></p>
+	<p>Here are the notecards...</p>
+	<% @notecards.each do |notecard| %>
+		<p><%= notecard.term %></p>
+		<p><%= notecard.definition %></p>
+		<p><%= notecard.created_at.year %></p>	
+	<% end %>	
+</body>
