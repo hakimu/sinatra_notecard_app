@@ -1,7 +1,7 @@
 require 'json'
+require 'data_mapper'
 require 'unicorn'
 require 'sinatra'
-require 'data_mapper'
 require 'newrelic_rpm'
 
 DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/notecard.db")
@@ -25,6 +25,14 @@ get '/' do
 	@notecards = NoteCard.all :order => :id.desc
 	erb :home
 end
+
+get '/notecards' do
+	@notecards = NoteCard.all :order => :id.desc
+	erb :notecards
+end
+
+
+
 
 
 
